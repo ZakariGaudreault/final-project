@@ -13,7 +13,7 @@ const textColors = {
 
 Promise.all([
   d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
-  d3.csv("usa_rent_burden_by_state (1).csv") 
+  d3.csv("usa_rent_burden_by_state.csv") 
 ]).then(([us, csvData]) => {
  
   const stateData = {};
@@ -99,7 +99,7 @@ Promise.all([
 
   const sorted = Object.entries(stateData)
     .map(([fips, d]) => ({ ...d, fips, burden: ((d.rent / (d.income / 12)) * 100).toFixed(1) }))
-    .sort((a, b) => b.burden - a.burden);
+    .sort((a, b) => a.burden -b.burden);
 
   const tbody = document.getElementById('table-body');
   tbody.innerHTML = ""; 

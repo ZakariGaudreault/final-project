@@ -12,19 +12,10 @@
 <body>
 
 <header>
-  <div class="header-top">
-    <span>GEOG 260 — Term Project</span>
-    <span>March 2026</span>
-  </div>
-  <p class="kicker">Housing affordability &nbsp;/&nbsp; United States</p>
-  <h1 class="header-title">Where rent <em>outpaces</em> income</h1>
-  <p class="header-sub">A bivariate analysis of median gross rent against median household income across all 50 states and the District of Columbia.</p>
-  <div class="header-meta">
-    <span><b>Data</b>ACS 5-year, 2022</span>
-    <span><b>Geography</b>State level</span>
-    <span><b>Variables</b>B19013 · B25064</span>
-    <span><b>Method</b>Bivariate choropleth</span>
-  </div>
+  <p class="kicker">Housing vs income &nbsp;/&nbsp; United States</p>
+  <h1 class="header-title">Median Gross Rent vs. Median Household</h1>
+  <p class="header-sub">A bivariate analysis of median gross rent against median household income across all 50 states in 2022.</p>
+
 </header>
 
 <main>
@@ -48,15 +39,15 @@
     </div>
   </div>
 
-  <!-- MAP -->
+
   <div class="map-wrap">
     <svg id="map-svg" viewBox="0 0 960 600"></svg>
   </div>
 
-  <!-- LEGEND -->
+ 
   <div class="legend-wrap">
     <div class="legend-grid-wrap">
-      <div class="legend-y-label">Rent ↑ low → high</div>
+      <div class="legend-y-label">Rent(low to high)</div>
       <div class="legend-grid">
         <div class="lc" style="background:var(--c31)" title="High rent, low income"></div>
         <div class="lc" style="background:var(--c32)" title="High rent, mid income"></div>
@@ -69,7 +60,7 @@
         <div class="lc" style="background:var(--c13)" title="Low rent, high income"></div>
       </div>
       <div class="legend-axis-x">
-        <span>Income</span>
+        <span>Income(Low to High)</span>
         <div class="arr"></div>
       </div>
     </div>
@@ -78,27 +69,13 @@
       <p><span class="chip" style="background:#1b7837"></span><strong>Dark green</strong> — low rent, high income. No US state currently occupies this cell, a finding in itself.</p>
       <p><span class="chip" style="background:#fdd49e"></span><strong>Pale yellow</strong> — high rent, high income. Expensive but households can largely afford it (e.g. Hawaii, DC, New York).</p>
       <p><span class="chip" style="background:#e8e4dc;border:1px solid #ccc"></span><strong>Neutral</strong> — mid rent, mid income. The "average" American state.</p>
+      <p><span class="chip" style="background:#e8e4dc;border:1px solid #ccc"></span><strong>Sources</strong> U.S. Census Bureau, American Community Survey 5-year estimates (2022).
+      Variables: B19013 (median household income), B25064 (median gross rent).
+      Geography: TIGER/Line shapefiles, U.S. Census Bureau (2023). Projection: Albers Equal Area.
+      Author: Zakari Gaudreault St-Jean — GEOG260, 2026.</p>
     </div>
   </div>
-  <p class="map-caption">Fig. 1 — Rent burden by state, 2022. Classification based on tertile breaks across 51 geographies. Alaska and Hawaii inset positions are approximate. Projection: Albers Equal Area Conic.</p>
-
-  <!-- ARTICLE -->
-  <div class="section-rule"><span>Analysis</span></div>
-
-  <div class="article-body">
-    <p>Housing affordability has become one of the most pressing economic issues in the United States. As rents rise faster than wages in many parts of the country, understanding where households face the greatest financial strain is essential for policy, planning, and public awareness. This map visualizes rent burden — the share of household income spent on rent — by comparing median gross rent against median household income across all 50 states and the District of Columbia using 2022 data from the U.S. Census Bureau's American Community Survey.</p>
-
-    <p>A bivariate choropleth map was chosen because the goal is not simply to show where rent is high or where income is low, but to reveal where both conditions intersect — and where they diverge. A single-variable map of rent alone would miss the distinction between an expensive state like New York, where high incomes partially offset high rents, and Florida, where rents are similarly elevated but household incomes are considerably more modest.</p>
-
-    <div class="pullquote">No state offers high incomes alongside cheap rent — wherever rents are lowest, wages tend to be modest too.</div>
-
-    <p>Each state is classified into one of three tiers for both income and rent using tertile breaks derived from the full distribution of 51 geographies. The resulting nine-cell colour grid spans from dark red — high rent, low income — to dark green — low rent, high income. Notably, no state falls into the low-rent, high-income category. This confirms that in the United States, wherever rents are cheapest, wages also tend to be modest. There is no affordable paradise for high earners.</p>
-
-    <p>Florida emerges as the most rent-burdened state at 26.5% of monthly income, a consequence of strong in-migration driving up rents without a corresponding rise in local wages. The Sun Belt broadly — Georgia, Arizona, Texas, Nevada — clusters in the orange mid-range, reflecting rapid rent growth in metros like Atlanta, Phoenix, and Austin. The Pacific coast and New England occupy the pale yellow high-rent, high-income quadrant, where affordability pressure exists but is partially cushioned by stronger labour markets. The most affordable states are concentrated in the Midwest and Great Plains: Iowa, the Dakotas, Nebraska, and Wisconsin all show low-to-moderate rent against mid-range incomes.</p>
-  </div>
-
-  <!-- TABLE -->
-  <div class="section-rule"><span>State rankings</span></div>
+ 
 
   <div class="table-wrap">
     <table>
@@ -116,37 +93,13 @@
     </table>
   </div>
 
-  <!-- METHODOLOGY -->
-  <div class="section-rule"><span>Methodology</span></div>
 
-  <div class="method-grid">
-    <div class="method-cell">
-      <h4>Income data</h4>
-      <p>Median household income by state from the U.S. Census Bureau American Community Survey (ACS) 5-year estimates, 2022. Variable B19013. Represents the midpoint of all household income values in the state.</p>
-    </div>
-    <div class="method-cell">
-      <h4>Rent data</h4>
-      <p>Median gross rent by state from ACS 5-year estimates, 2022. Variable B25064. Gross rent includes contract rent plus estimated average monthly cost of utilities and fuels.</p>
-    </div>
-    <div class="method-cell">
-      <h4>Classification</h4>
-      <p>Both variables classified into three tiers using tertile breaks across 51 geographies (50 states + D.C.). Thresholds: income low &lt;$63,132, high &gt;$72,431; rent low &lt;$914/mo, high &gt;$1,175/mo. Nine bivariate classes produced; class 1-3 is vacant.</p>
-    </div>
-    <div class="method-cell">
-      <h4>Tools</h4>
-      <p>Data prepared in Python (pandas). Joined to TIGER/Line state shapefiles (2023) in QGIS via STATEFP field. Bivariate symbology applied with manual hex colour assignment. This page built with D3.js and plain HTML/CSS.</p>
-    </div>
-  </div>
-
-  <div class="article-body">
-    <p style="font-size:14px; color:var(--ink-3);">This map has several limitations worth acknowledging. State-level medians mask significant within-state variation — California's statewide median conceals the gulf between San Francisco and the Central Valley. The rent variable reflects all rental units, not just market-rate listings, which may understate true affordability pressure in tight markets. Finally, the 2022 ACS data predates some of the most recent rent increases seen in Sun Belt cities, meaning current conditions in states like Texas, Georgia, and Arizona may be worse than shown. Readers should treat this map as a structural snapshot rather than a precise current measure of affordability.</p>
-  </div>
 
 </main>
 
 <footer>
-  <div>Sources: U.S. Census Bureau, American Community Survey 5-year estimates, 2022 (variables B19013, B25064). TIGER/Line Shapefiles, 2023. &nbsp;·&nbsp; Prepared for GEOG 260, 2026.</div>
-  <div style="margin-top:6px;">Map rendered with <a href="https://d3js.org">D3.js</a> and <a href="https://github.com/topojson/topojson">TopoJSON</a>. Hosted on GitHub Pages.</div>
+  <div>Made by Zakari Gaudreault St-Jean 2026. Student ID 40319057</div>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>

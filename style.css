@@ -3,21 +3,20 @@
   :root {
     --ink:      #1a1714;
     --ink-2:    #4a4541;
-    --ink-3:    #8a857f;
-    --paper:    #f5f2ec;
-    --paper-2:  #ede9e1;
+    --paper:    #ffffff;
+    --paper-2:  #ffffff;
     --rule:     #d4cfc6;
     --accent:   #c0392b;
     --col:      680px;
 
     --c11: #d9f0d3; --c12: #5aae61; --c13: #1b7837;
-    --c21: #f4a582; --c22: #e8e4dc; --c23: #92c5de;
+    --c21: #f4a582; --c22: #c7c7c7; --c23: #92c5de;
     --c31: #b2182b; --c32: #ef6548; --c33: #fdd49e;
   }
 
   html { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
 
-  /* ── HEADER ── */
+ 
   header {
     background: var(--ink);
     color: var(--paper);
@@ -82,14 +81,14 @@
     margin-bottom: 2px;
   }
 
-  /* ── LAYOUT ── */
+
   main {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 24px 80px;
   }
 
-  /* ── STAT STRIP ── */
+ 
   .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -120,7 +119,7 @@
     line-height: 1.4;
   }
 
-  /* ── MAP SECTION ── */
+ 
   .map-wrap {
     background: var(--paper-2);
     border: 1px solid var(--rule);
@@ -129,7 +128,7 @@
   }
   #map-svg { width: 100%; height: auto; display: block; }
 
-  /* ── LEGEND ── */
+ 
   .legend-wrap {
     display: flex;
     align-items: flex-start;
@@ -161,8 +160,8 @@
   .legend-axis-x .arr::after { content:''; position:absolute; right:-1px; top:-3px; border:4px solid transparent; border-left:6px solid var(--ink-3); }
   .legend-y-label {
     position: absolute;
-    left: -26px;
-    top: 42px;
+    left: -15px;
+    top: 0;
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     color: var(--ink-3);
@@ -170,7 +169,7 @@
     transform: rotate(180deg);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 0px;
   }
   .legend-desc { font-size: 13px; font-weight: 300; color: var(--ink-2); line-height: 1.65; }
   .legend-desc p { margin-bottom: 8px; }
@@ -193,7 +192,7 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── ARTICLE BODY ── */
+
   .section-rule {
     display: flex;
     align-items: center;
@@ -246,7 +245,7 @@
     max-width: 560px;
   }
 
-  /* ── DATA TABLE ── */
+ 
   .table-wrap {
     margin: 32px 0;
     border: 1px solid var(--rule);
@@ -276,7 +275,7 @@
   .bad-text  { color: #b2182b; font-weight: 600; }
   .good-text { color: #1b7837; font-weight: 600; }
 
-  /* ── METHODOLOGY ── */
+ 
   .method-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -304,7 +303,7 @@
     color: var(--ink-2);
   }
 
-  /* ── FOOTER ── */
+
   footer {
     background: var(--ink);
     color: rgba(255,255,255,0.35);
