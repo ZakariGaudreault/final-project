@@ -3,51 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A bivariate map comparing median gross rent against median household income across all 50 US states using ACS 2020-2024 data.">
 <title>Rent Burden Across the United States</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
 <header>
   <p class="kicker">Housing vs income &nbsp;/&nbsp; United States</p>
-  <h1 class="header-title">Median Gross Rent vs. Median Household</h1>
-  <p class="header-sub">A bivariate analysis of median gross rent against median household income across all 50 states in 2024.</p>
-
+  <h1 class="header-title">Median Gross Rent vs. Median Household Income by State</h1>
+  <p class="header-sub">A bivariate analysis of median gross rent against median household income across all 50 states and the District of Columbia (ACS 2020 to 2024).</p>
 </header>
 
 <main>
 
   <div class="stats">
     <div class="stat">
-      <div class="stat-val bad">26.5%</div>
+      <div class="stat-val bad">26.9%</div>
       <div class="stat-label">Florida — highest<br>rent burden</div>
     </div>
     <div class="stat">
-      <div class="stat-val good">14.5%</div>
-      <div class="stat-label">South Dakota — lowest<br>rent burden</div>
+      <div class="stat-val good">14.9%</div>
+      <div class="stat-label">North Dakota — lowest<br>rent burden</div>
     </div>
     <div class="stat">
-      <div class="stat-val">$1,175</div>
-      <div class="stat-label">National threshold<br>high rent (monthly)</div>
+      <div class="stat-val">$1,419</div>
+      <div class="stat-label">Threshold for<br>high rent (monthly)</div>
     </div>
     <div class="stat">
-      <div class="stat-val">$72,431</div>
-      <div class="stat-label">National threshold<br>high income (annual)</div>
+      <div class="stat-val">$83,390</div>
+      <div class="stat-label">Threshold for<br>high income (annual)</div>
     </div>
   </div>
-
 
   <div class="map-wrap">
     <svg id="map-svg" viewBox="0 0 960 600"></svg>
   </div>
 
- 
   <div class="legend-wrap">
     <div class="legend-grid-wrap">
-      <div class="legend-y-label">Rent(low to high)</div>
+      <div class="legend-y-label">Rent(low-high)</div>
       <div class="legend-grid">
         <div class="lc" style="background:var(--c31)" title="High rent, low income"></div>
         <div class="lc" style="background:var(--c32)" title="High rent, mid income"></div>
@@ -60,21 +57,31 @@
         <div class="lc" style="background:var(--c13)" title="Low rent, high income"></div>
       </div>
       <div class="legend-axis-x">
-        <span>Income(Low to High)</span>
-        <div class="arr"></div>
+        <span>Income (low-high)</span>
       </div>
     </div>
     <div class="legend-desc">
       <p><span class="chip" style="background:#b2182b"></span><strong>Dark red</strong> — high rent, low income. The most rent-burdened states. Florida is the sole occupant of this cell.</p>
       <p><span class="chip" style="background:#1b7837"></span><strong>Dark green</strong> — low rent, high income. No US state currently occupies this cell, a finding in itself.</p>
       <p><span class="chip" style="background:#fdd49e"></span><strong>Pale yellow</strong> — high rent, high income. Expensive but households can largely afford it (e.g. Hawaii, DC, New York).</p>
-      <p><span class="chip" style="background:#e8e4dc;border:1px solid #ccc"></span><strong>Neutral</strong> — mid rent, mid income. The "average" American state.</p>
-      <p><span class="chip" style="background:#000000;border:1px solid #030303"></span><strong>Sources</strong> U.S. Source: U.S. Census Bureau, 2024 ACS 5-Year Estimates (Tables B19013, B25064)
-Geography: TIGER/Line Shapefiles (2023) | Projection: Albers Equal Area
-Author: Zakari Gaudreault St-Jean — GEOG260, 2026</p>
+      <p><span class="chip" style="background:#e8e4dc;border:1px solid #ccc"></span><strong>Neutral grey</strong> — mid rent, mid income. The average American state.</p>
     </div>
   </div>
- 
+
+
+
+  <div class="static-map-section">
+    <div class="static-map-header">
+      <div class="static-map-rule"><span>Full cartographic map</span></div>
+      <p class="static-map-context">The interactive map above is designed for data exploration. The version below is the complete cartographic output which was produced in QGIS and refined in Inkscape and is including a full bivariate legend, scale bar, north arrow, and projection information. It represents the formal deliverable for this project.</p>
+    </div>
+    <div class="static-map-frame">
+      <img src="image 1.png" alt="Rent Burden Across the United States — full cartographic map" class="static-map-img">
+      <div class="static-map-caption-bar">
+        Rent Burden Across the United States (2020–2024) &nbsp;·&nbsp; Bivariate choropleth &nbsp;·&nbsp; QGIS + Inkscape &nbsp;·&nbsp; Albers Equal Area Conic
+      </div>
+    </div>
+  </div>
 
   <div class="table-wrap">
     <table>
@@ -92,13 +99,14 @@ Author: Zakari Gaudreault St-Jean — GEOG260, 2026</p>
     </table>
   </div>
 
-
-
 </main>
 
 <footer>
-  <div>Made by Zakari Gaudreault St-Jean 2026. Student ID 40319057</div>
-
+  <div>Made by Zakari Gaudreault St-Jean — GEOG260, 2026. Student ID 40319057.</div>
+  <div style="margin-top:6px;">
+    Sources: U.S. Census Bureau, ACS 5-Year Estimates 2020–2024, Tables B19013 &amp; B25064.
+    TIGER/Line Shapefiles (2023). Map rendered with D3.js and TopoJSON.
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
